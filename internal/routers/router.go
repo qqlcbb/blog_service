@@ -2,8 +2,10 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
+	"go-blog-service/global"
 	"go-blog-service/internal/middleware"
 	v1 "go-blog-service/internal/routers/api/v1"
+	"net/http"
 )
 
 func NewRouter() *gin.Engine {
@@ -14,6 +16,11 @@ func NewRouter() *gin.Engine {
 
 	tag := v1.NewTag()
 	article := v1.NewArticle()
+
+	// 上传文件
+	upload := v1.NewUpload()
+	engine.POST("/upload/file", upload.UploadFile)
+	engine.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))
 
 	group := engine.Group("/api/v1")
 	{

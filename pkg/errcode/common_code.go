@@ -15,5 +15,6 @@ var (
 	ErrorUpdateFail = NewError(20010003, "更新失败")
 	ErrorDeleteFail = NewError(20010004, "删除失败")
 	ErrorCountFail = NewError(20010005, "统计失败")
+	ErrorUploadFileFail = NewError(20030001, "上传文件失败")
 )
 
