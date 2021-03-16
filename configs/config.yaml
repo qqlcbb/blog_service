@@ -27,4 +27,7 @@ Database:
     ParseTime: True
     MaxIdleConns: 10
     MaxOpenConns: 30
-
+JWT:
+    Secret: lcb
+    Issuer: lcb
+    Expire: 7200

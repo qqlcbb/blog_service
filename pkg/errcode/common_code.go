@@ -16,5 +16,8 @@ var (
 	ErrorDeleteFail = NewError(20010004, "删除失败")
 	ErrorCountFail = NewError(20010005, "统计失败")
 	ErrorUploadFileFail = NewError(20030001, "上传文件失败")
+	ErrorAuthNotExist = NewError(20030002, "appkey不存在")
+	ErrorAuthGenerateToken = NewError(20030003, "token生成失败")
+	ErrorAuthMissToken = NewError(20030004, "token必须")
 )
 

@@ -16,13 +16,17 @@ func NewRouter() *gin.Engine {
 
 	tag := v1.NewTag()
 	article := v1.NewArticle()
-
-	// 上传文件
 	upload := v1.NewUpload()
+	auth := v1.NewAuth()
+
 	engine.POST("/upload/file", upload.UploadFile)
 	engine.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))
 
+	// 获取token
+	engine.GET("/auth", auth.GetAuth)
+
 	group := engine.Group("/api/v1")
+	group.Use(middleware.JWT())
 	{
 		group.POST("/tags", tag.Create)
 		group.PUT("/tags/:id", tag.Update)

@@ -3,6 +3,7 @@ module go-blog-service
 go 1.16
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gin-gonic/gin v1.5.0 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect
