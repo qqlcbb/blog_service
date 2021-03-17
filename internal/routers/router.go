@@ -10,8 +10,8 @@ import (
 
 func NewRouter() *gin.Engine {
 	engine := gin.New()
-	engine.Use(gin.Logger())
-	engine.Use(gin.Recovery())
+	engine.Use(middleware.AccessLog())
+	engine.Use(middleware.Recovery())
 	engine.Use(middleware.Translations())
 
 	tag := v1.NewTag()
@@ -40,7 +40,6 @@ func NewRouter() *gin.Engine {
 		group.PATCH("/articles/:id", article.Update)
 		group.GET("/articles", article.List)
 		group.GET("/articles/:id", article.Get)
-
 	}
 
 	return engine

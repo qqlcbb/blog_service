@@ -122,7 +122,7 @@ func (l *Logger) WithCallersFrames() *Logger {
 func (l *Logger) JSONFormat(message string) map[string]interface{} {
 	data := make(Fields, len(l.fields) + 4)
 	data["level"] = l.level.String()
-	data["time"] = time.Now().Local().UnixNano()
+	data["time"] = time.Now().Format("2006/01/02 15:04:05")
 	data["message"] = message
 	data["callers"] = l.callers
 
